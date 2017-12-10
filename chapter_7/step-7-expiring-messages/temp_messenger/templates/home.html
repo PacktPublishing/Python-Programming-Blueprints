@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</script>
+
+<body>
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{ message['message'] }}</p>
+    {% endfor %}
+  {% else %}
+    <p>No messages!</p>
+  {% endif %}
+
+  <form action="/messages" id="postMessage">
+    <input type="text" name="message" placeholder="Post message">
+    <input type="submit" value="Post">
+  </form>
+
+  <script>
+
+  $( "#postMessage" ).submit(function( event ) {
+    event.preventDefault();
+
+    var $form = $( this ),
+      message = $form.find( "input[name='message']" ).val(),
+      url = $form.attr( "action" );
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: JSON.stringify({message: message}),
+      contentType: "application/json",
+      dataType: 'json',
+      success: function() {location.reload();}
+    });
+
+  });
+  </script>
+</body>
