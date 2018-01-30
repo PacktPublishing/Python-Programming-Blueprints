@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<body>
+  <h1>Sign up</h1>
+  <form action="/sign_up" method="post">
+    <input type="text" name="first_name" placeholder="First Name">
+    <input type="text" name="last_name" placeholder="Last Name">
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Submit">
+  </form>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% endif %}
+</body>
