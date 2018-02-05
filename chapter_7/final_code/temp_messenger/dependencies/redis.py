@@ -7,7 +7,7 @@ from redis import StrictRedis
 MESSAGE_LIFETIME = 10000
 
 
-class Redis(DependencyProvider):
+class MessageStore(DependencyProvider):
 
     def setup(self):
         self.redis_url = self.container.config['REDIS_URL']
