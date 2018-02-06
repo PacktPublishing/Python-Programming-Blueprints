@@ -7,6 +7,10 @@ from redis import StrictRedis
 MESSAGE_LIFETIME = 10000
 
 
+class MessageError(Exception):
+    pass
+
+
 class MessageStore(DependencyProvider):
 
     def setup(self):
@@ -28,18 +32,23 @@ class RedisClient:
         )
 
     def get_message(self, message_id):
-        message = self.redis.get(message_id)
+        message = self.redis.hget(message_id, 'message')
 
         if message is None:
-            raise RedisError(
+            raise MessageError(
                 'Message not found: {}'.format(message_id)
             )
 
         return message
 
-    def save_message(self, message):
+    def save_message(self, email, message):
         message_id = uuid4().hex
-        self.redis.set(message_id, message, px=MESSAGE_LIFETIME)
+        payload = {
+            'email': email,
+            'message': message,
+        }
+        self.redis.hmset(message_id, payload)
+        self.redis.pexpire(message_id, MESSAGE_LIFETIME)
 
         return message_id
 
@@ -63,12 +72,9 @@ class RedisClient:
         return [
             {
                 'id': message_id,
-                'message': self.redis.get(message_id),
+                'email': self.redis.hget(message_id, 'email'),
+                'message': self.redis.hget(message_id, 'message'),
                 'expires_in': self.redis.pttl(message_id),
             }
             for message_id in self.redis.keys()
         ]
-
-
-class RedisError(Exception):
-    pass

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<body>
+  <h1>Login</h1>
+  <form action="/login" method='post'>
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Post">
+  </form>
+  {% if login_error %}
+    <p>Bad log in</p>
+  {% endif %}
+</body>

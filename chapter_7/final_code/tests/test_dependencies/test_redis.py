@@ -2,7 +2,7 @@ from mock import Mock, patch, call
 
 import pytest
 
-from temp_messenger.dependencies.redis import Redis
+from temp_messenger.dependencies.redis import MessageStore
 
 
 @pytest.fixture
@@ -12,33 +12,33 @@ def mock_strict_redis():
 
 
 @pytest.fixture
-def test_redis():
-    test_redis = Redis()
-    test_redis.container = Mock()
-    test_redis.container.config = {'REDIS_URL': 'redis://redis/0'}
+def message_store():
+    message_store = MessageStore()
+    message_store.container = Mock()
+    message_store.container.config = {'REDIS_URL': 'redis://redis/0'}
 
-    return test_redis
+    return message_store
 
 
-def test_sets_up_redis_dependency(mock_strict_redis, test_redis):
-    test_redis.setup()
+def test_sets_up_redis_dependency(mock_strict_redis, message_store):
+    message_store.setup()
 
-    assert test_redis.redis_url == 'redis://redis/0'
+    assert message_store.redis_url == 'redis://redis/0'
     assert mock_strict_redis.from_url.call_args_list == [
         call('redis://redis/0', decode_responses=True, charset='utf-8')
     ]
 
 
-def test_stop(mock_strict_redis, test_redis):
-    test_redis.setup()
-    test_redis.stop()
+def test_stop(mock_strict_redis, message_store):
+    message_store.setup()
+    message_store.stop()
 
     with pytest.raises(AttributeError):
-        test_redis.client
+        message_store.client
 
 
-def test_get_dependency(mock_strict_redis, test_redis):
-    test_redis.setup()
+def test_get_dependency(mock_strict_redis, message_store):
+    message_store.setup()
 
     worker_ctx = Mock()
-    assert test_redis.get_dependency(worker_ctx) == test_redis.client
+    assert message_store.get_dependency(worker_ctx) == message_store.client
