@@ -1,0 +1,223 @@
+.nav.navbar-nav .fa-home,
+.nav.navbar-nav .fa-shopping-cart {
+ font-size: 1.5em;
+}
+
+.starter-template {
+  padding: 70px 15px;
+}
+
+h2.panel-title {
+  font-size: 25px;
+}
+
+/* Signin page */
+/* Styling extracted from http://getbootstrap.com/examples/signin/ */
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+}
+
+.form-signin input[type="email"] border-top {
+    left-radius: 0;
+   right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+}
+
+.form-signin input[type="password"] border-top {
+    left-radius: 0;
+    right-radius: 0;
+}
+
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.signin-errors-container .form-errors {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  color: red;
+}
+
+.signin-errors-container .form-errors li {
+  max-width: 350px;
+}
+
+/* Account created page */
+.create-account-msg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.create-account-msg-container .circle {
+    width: 200px;
+    height: 200px;
+    border: solid 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    border-radius: 50%;
+}
+
+.create-account-msg-container .fa-thumbs-o-up {
+    font-size: 9em;
+}
+
+.create-account-msg-container a {
+    font-size: 1.5em;
+}
+
+/* Sign up page */
+
+.account-details-container #id_password,
+.account-details-container #id_repeat_password {
+    width:200px;
+}
+
+.account-details-container {
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.account-details-container .btn.btn-primary {
+    margin-top:20px;
+}
+
+.account-details-container label {
+    margin-top: 20px;
+}
+
+.account-details-container .errorlist {
+    padding-left: 10px;
+    display: inline-block;
+    list-style: none;
+    color: red;
+}
+
+.game-container {
+    margin-top: 10px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.game-container .item-box {
+    flex-grow: 0;
+    align-self: auto;
+    width:339px;
+    margin: 0px 10px 20px 10px;
+    border: 1px solid #aba5a5;
+    padding: 10px;
+    background-color: #F0F0F0;
+}
+
+.game-container .item-box .add-to-cart {
+    margin-top: 15px;
+    float: right;
+}
+
+.game-container .item-box.promoted {
+    background-color:#d7e7f5;
+}
+
+.game-container .item-box .item-image {
+    float: left;
+}
+
+.game-container .item-box .item-info {
+    float: left;
+    margin-left: 15px;
+    width:100%;
+    max-width:170px;
+}
+
+.game-container .item-box .item-info p {
+    margin: 0 0 3px;
+}
+
+.game-container .item-box .item-info p.price {
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.game-container .item-box .item-info h3 {
+    max-width: 150px;
+    word-wrap: break-word;
+    margin: 0px 0px 10px 0px;
+}
+
+/* cart details */
+
+.cart-details h3 {
+    margin-bottom: 40px;
+}
+
+.cart-details .table tbody tr td:nth-child(2) {
+    width: 10%;
+}
+
+.cart-details .table tbody tr td:nth-child(3) {
+    width: 25%;
+}
+
+.cart-details .table tbody tr td:nth-child(4) {
+    width: 20%;
+}
+
+.has-errors input:focus {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,1);
+    webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,1);
+}
+
+.has-errors input {
+    color: red;
+    border-color: red;
+}
+
+.cart-details .footer {
+    display:flex;
+    justify-content: space-between;
+}
+
+.cart-details .footer .total-value {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-left: 10px;
+}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+{% load humanize %}
+
+<div class='cart-details'>
+
+<h3>{{ shoppingcart}}</h3>
+
+{% if is_cart_empty %}
+
+<h2>Your shopping cart is empty</h2>
+
+{% else %}
+
+<form action='' method='POST'>
+
+  {% csrf_token %}
+
+  {{ form.management_form }}
+
+ <button class='btn btn-success'>
+  <i class="fa fa-refresh" aria-hidden="true"></i>
+     Updated cart
+ </button>
+  <hr/>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Game</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price per unit</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for item_form in form %}
+   <tr>
+     <td>{{item_form.instance.game.name}}</td>
+     <td class="{% if item_form.quantity.errors %}has-errors{% endif%}">
+        {{item_form.quantity}}
+     </td>
+   <td>${{item_form.instance.price_per_unit|floatformat:2|intcomma}}</td>
+   <td>{{item_form.DELETE}} Remove item</td>
+   {% for hidden in item_form.hidden_fields %}
+     {{ hidden }}
+   {% endfor %}
+  </tr>
+  {% endfor %}
+  <tbody>
+ </table>
+ </form>
+<hr/>
+<div class='footer'>
+  <p class='total-value'>Total of your order: ${{total_order|floatformat:2|intcomma}}</p>
+  <button class='btn btn-primary'>
+     <i class="fa fa-check" aria-hidden="true"></i>
+        SEND ORDER
+  </button>
+</div>
+  {% endif %}
+</div>
+{% endblock %}

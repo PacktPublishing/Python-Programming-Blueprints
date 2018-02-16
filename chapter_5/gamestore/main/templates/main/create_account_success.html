@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+    <div class='create-account-msg-container'>
+
+        <div class='circle'>
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+        </div>
+
+        <h3>Your account have been successfully created!</h3>
+
+        <a href="{% url 'login' %}">Click here to login</a>
+
+    </div>
+
+{% endblock %}
