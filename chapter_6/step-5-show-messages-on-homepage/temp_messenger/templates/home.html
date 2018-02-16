@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message['message'] }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No messages!</p>
+    {% endif %}
+</body>

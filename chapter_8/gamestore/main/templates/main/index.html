@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+  {% if highlighted_games_list %}
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <h2 class='panel-title'><i class="fa fa-gamepad"
+        aria-hidden="true"></i>Highlighted games</h2>
+      </div>
+      <div class='panel-body'>
+        {% include 'main/games-list.html' with gameslist=highlighted_games_list highlight_games=False%}
+        {% if show_more_link_highlighted %}
+        <p>
+          <a href='/games-list/highlighted/'>See more items</a>
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if games_list %}
+    {% include 'main/games-list.html' with gameslist=games_list highlight_games=False%}
+    {% if show_more_link_games %}
+      <p>
+        <a href='/games-list/all/'>See all items</a>
+      </p>
+    {% endif %}
+  {% endif %}
+
+{% endblock %}
