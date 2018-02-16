@@ -1,0 +1,32 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Hi, {{customer_name}}!</h1>
+    <h3>Thank you so much for your order</h3>
+    <p>
+      <h3>Order id: {{order_id}}</h3>
+    </p>
+    <table border="1">
+      <thead>
+        <tr>
+          <th align="left" width="40%">Item</th>
+          <th align="left" width="20%">Quantity</th>
+          <th align="left" width="20%">Price per unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order_items %}
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>${{item.price_per_unit}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div style="margin-top:20px;">
+      <strong>Total: ${{total_purchased}}</strong>
+    </div>
+  </body>
+</html>
