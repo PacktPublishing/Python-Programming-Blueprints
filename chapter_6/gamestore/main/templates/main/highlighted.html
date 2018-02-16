@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+ <h2>Highlighted games</h2>
+ <hr/>
+
+{% if games %}
+  {% include 'main/games-list.html' with gameslist=games highlight_promoted=False%}
+{% else %}
+  <div class='empty-game-list'>
+  <h3>There's no promoted games available at the moment</h3>
+ </div>
+{% endif %}
+
+{% endblock %}

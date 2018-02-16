@@ -1,0 +1,35 @@
+{% load staticfiles %}
+{% load humanize %}
+
+
+<div class='game-container'>
+    {% for game in gameslist %}
+    {% if game.highlighted and highlight_games %}
+      <div class='item-box highlighted'>
+    {% else %}
+      <div class='item-box'>
+    {% endif %}
+      <div class='item-image'>
+      <img src="{% static game.image.url %}"></img>
+    </div>
+      <div class='item-info'>
+        <h3>{{game.name}}</h3>
+        <p>Release year: {{game.release_year}}</p>
+        <p>Developer: {{game.developer}}</p>
+        <p>Publisher: {{game.published_by}}</p>
+        {% if game.pricelist.price_per_unit %}
+          <p class='price'>
+            Price: ${{game.pricelist.price_per_unit|floatformat:2|intcomma}}
+          </p>
+        {% else %}
+        <p class='price'>Price: Not available</p>
+        {% endif %}
+      </div>
+     <a href="/cart/add/{{game.id}}" class="add-to-cart btn
+        btn-primary">
+       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+       Add to cart
+     </a>
+   </div>
+   {% endfor %}
+</div>

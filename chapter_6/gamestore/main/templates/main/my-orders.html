@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+<h3>Order history</h3>
+
+{% for order in orders %}
+
+<div class="order-container">
+  <div><strong>Order ID:</strong> {{order.id}}</div>
+  <div><strong>Create date:</strong> {{ order.created_at }}</div>
+  <div><strong>Status:</strong> <span class="label label-success">{{order.status}}</span></div>
+  <div class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Quantity</th>
+          <th>Price per unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items %}
+        <tr>
+          <td>{{item.name}}</td><td>{{item.quantity}}</td>
+          <td>${{item.price_per_unit}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div><strong>Total amount:</strong>{{order.total}}</div>
+  <hr/>
+</div>
+{% endfor %}
+{% endblock %}

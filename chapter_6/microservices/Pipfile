@@ -1,0 +1,22 @@
+[[source]]
+
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+name = "pypi"
+
+
+[packages]
+
+Django = "*"
+djangorestframework = "*"
+python-dateutil = "*"
+requests = "*"
+
+
+[requires]
+
+python_version = "3.6"
+
+
+[dev-packages]
+
