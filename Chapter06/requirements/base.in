@@ -1,0 +1,8 @@
+nameko
+redis
+jinja2
+sqlalchemy
+nameko-sqlalchemy
+bcrypt
+flask
+psycopg2
