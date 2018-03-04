@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</script>
+
+<body>
+  <h1>TempMessenger</h1>
+
+  <div id="messageContainer"></div>
+
+  <form action="/messages" id="postMessage">
+    <input type="text" name="message" placeholder="Post message">
+    <input type="submit" value="Post">
+  </form>
+
+  <script>
+
+  function messagePoll() {
+    $.ajax({
+      type: "GET",
+      url: "/messages",
+      dataType: "json",
+      success: function(data) {
+        updateMessages(data);
+      },
+      timeout: 500,
+      complete: setTimeout(messagePoll, 1000),
+    })
+  }
+
+  messagePoll();
+
+  function updateMessages(messages) {
+    var $messageContainer = $('#messageContainer');
+    var messageList = [];
+    var emptyMessages = '<p>No messages!</p>';
+
+    if (messages.length === 0) {
+      $messageContainer.html(emptyMessages);
+    } else {
+      $.each(messages, function(index, value) {
+        var message = $(value.message).text() || value.message;
+        messageList.push('<p>' + message + '</p>');
+      });
+      $messageContainer.html(messageList);
+    }
+  }
+
+
+  $( "#postMessage" ).submit(function(event) {
+    event.preventDefault();
+
+    var $form = $(this),
+      message = $form.find( "input[name='message']" ).val(),
+      url = $form.attr( "action" );
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: JSON.stringify({message: message}),
+      contentType: "application/json",
+      dataType: "json",
+      success: this.reset()
+    });
+
+  });
+  </script>
+</body>
