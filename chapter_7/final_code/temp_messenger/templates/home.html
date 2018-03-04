@@ -39,7 +39,8 @@
       $messageContainer.html(emptyMessages);
     } else {
       $.each(messages, function(index, value) {
-        messageList.push('<p>' + value.message + '</p>');
+        var message = $(value.message).text() || value.message;
+        messageList.push('<p>' + message + '</p>');
       });
       $messageContainer.html(messageList);
     }

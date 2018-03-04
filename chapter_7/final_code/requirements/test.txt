@@ -4,7 +4,10 @@
 #
 #    pip-compile --output-file requirements/test.txt requirements/test.in
 #
-fakeredis==0.8.2
-py==1.4.34                # via pytest
-pytest==3.2.2
+attrs==17.4.0             # via pytest
+fakeredis==0.9.0
+pluggy==0.6.0             # via pytest
+py==1.5.2                 # via pytest
+pytest==3.4.0
 redis==2.10.6             # via fakeredis
+six==1.11.0               # via pytest

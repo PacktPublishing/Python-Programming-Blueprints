@@ -45,8 +45,9 @@
       $messageContainer.html(emptyMessages);
     } else {
       $.each(messages, function(index, value) {
+        var message = $(value.message).text() || value.message;
         messageList.push(
-          '<p>' + value.email + ': ' + value.message + '</p>'
+          '<p>' + value.email + ': ' + message + '</p>'
         );
       });
       $messageContainer.html(messageList);

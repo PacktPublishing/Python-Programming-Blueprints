@@ -5,3 +5,4 @@ sqlalchemy
 nameko-sqlalchemy
 bcrypt
 flask
+psycopg2

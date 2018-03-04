@@ -1,4 +1,5 @@
 import json
+from operator import itemgetter
 
 from nameko.rpc import rpc, RpcProxy
 from nameko.web.handlers import http
@@ -85,6 +86,6 @@ def get_request_data(request):
 def sort_messages_by_expiry(messages, reverse=False):
     return sorted(
         messages,
-        key=lambda message: message['expires_in'],
+        key=itemgetter('expires_in'),
         reverse=reverse
     )

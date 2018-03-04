@@ -10,8 +10,8 @@ MESSAGE_LIFETIME = 10000
 class MessageStore(DependencyProvider):
 
     def setup(self):
-        self.redis_url = self.container.config['REDIS_URL']
-        self.client = RedisClient(self.redis_url)
+        redis_url = self.container.config['REDIS_URL']
+        self.client = RedisClient(redis_url)
 
     def stop(self):
         del self.client
