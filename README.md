@@ -40,5 +40,3 @@ In order to execute the code from this book on your local machine, you will need
 
 ### Suggestions and Feedback
 Please raise a Github issue if there are any issues with the code in this repository.
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
-
