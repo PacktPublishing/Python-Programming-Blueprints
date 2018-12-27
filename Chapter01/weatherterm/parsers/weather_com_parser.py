@@ -171,8 +171,7 @@ class WeatherComParser:
                                            args.area_code)
 
         bs = BeautifulSoup(content, 'html.parser')
-
-        forecast_data = bs.find('article', class_='ls-mod')
+        forecast_data = bs.find('section', class_='ls-mod')
         container = forecast_data.div.div
 
         partial_results = self._parse(container, criteria)
