@@ -33,5 +33,5 @@ requests==2.18.4          # via nameko
 six==1.11.0               # via bcrypt, mock, nameko
 sqlalchemy==1.2.1
 urllib3==1.22             # via requests
-werkzeug==0.12.2          # via flask, nameko
+werkzeug==0.15.3          # via flask, nameko
 wrapt==1.10.11            # via nameko
