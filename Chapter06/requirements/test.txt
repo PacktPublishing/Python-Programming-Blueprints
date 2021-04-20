@@ -5,6 +5,10 @@
 #    pip-compile --output-file requirements/test.txt requirements/test.in
 #
 fakeredis==0.8.2
-py==1.4.34                # via pytest
+    # via -r test.in
+py==1.10.0
+    # via pytest
 pytest==3.2.2
-redis==2.10.6             # via fakeredis
+    # via -r test.in
+redis==2.10.6
+    # via fakeredis
