@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Retro game store website",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "font-awesome": "^4.7.0"
   }
 }
