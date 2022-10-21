@@ -40,3 +40,7 @@ In order to execute the code from this book on your local machine, you will need
 
 ### Suggestions and Feedback
 Please raise a Github issue if there are any issues with the code in this repository.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781786468161">https://packt.link/free-ebook/9781786468161 </a> </p>
